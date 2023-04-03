@@ -1,0 +1,28 @@
+// Base
+@import "./base/variables";
+@import "./base/layout";
+@import "./base/typography";
+@import "./base/wrappers.scss";
+
+//Components
+//Common
+@import "./components/common/SignUpNavbar.scss";
+
+//User
+@import "./components/user/Navbar.scss";
+@import "./components/user/PlayButton.scss";
+@import "./components/user/InfoButton.scss";
+
+//Admin
+@import "./components/admin/CategoryCard.scss";
+
+//Pages
+//Common
+@import "./pages/common/SignUp.scss";
+@import "./pages/common/Login.scss";
+
+//User
+@import "./pages/user/UserHome.scss";
+
+//Admin
+@import "./pages/admin/AdminHome.scss";

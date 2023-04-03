@@ -1,0 +1,24 @@
+.admin-home {
+  width: 100%;
+  max-width: 960px;
+  min-height: 100vh;
+  margin: auto;
+  border-top: $space-x-big solid black;
+  gap: $space-x-big;
+  background-color: black;
+  color: $color-light-grey;
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: $space-big;
+
+    @media (min-width: 750px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: 960px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}

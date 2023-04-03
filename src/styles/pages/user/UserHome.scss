@@ -1,0 +1,26 @@
+.hero {
+  position: relative;
+
+  .background {
+    width: 100%;
+  }
+
+  .title-logo {
+    position: absolute;
+    bottom: 30%;
+    left: 5%;
+    gap: 4px;
+
+    .logo {
+      height: 20px;
+      width: 60px;
+    }
+
+    .title {
+      color: white;
+      font-family: "Roboto", sans-serif;
+      font-size: 25px;
+      padding-left: 5px;
+    }
+  }
+}

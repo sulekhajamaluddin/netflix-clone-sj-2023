@@ -1,0 +1,39 @@
+.navbar {
+  height: 50px;
+  padding: 5px 3%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  border-bottom: 1px solid $color-light-grey;
+
+  .logo {
+    height: 23px;
+  }
+
+  .authLink {
+    font-size: 14px;
+    font-weight: 500;
+    color: $color-dark-grey;
+    align-self: center;
+  }
+}
+
+.login-navbar {
+  background-color: black;
+  border-bottom: none;
+}
+
+@media (min-width: 441px) {
+  .navbar {
+    height: 90px;
+    align-items: center;
+
+    .logo {
+      height: 45px;
+    }
+
+    .authLink {
+      font-size: 18px;
+    }
+  }
+} ;

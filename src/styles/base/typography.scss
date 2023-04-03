@@ -1,0 +1,53 @@
+/*Fonts*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap");
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  //color: $color-light-grey;
+}
+
+.button,
+button,
+a {
+  font-size: $text-small-desktop;
+  font-weight: bold;
+}
+
+h1 {
+  font-weight: 500;
+  font-size: 32px;
+  //visually hidden
+  // font-size: 40px;
+  // @media (min-width: 1280px) {
+  //   font-size: 70px;
+  // }
+}
+
+h2 {
+  font-size: 20px;
+  // @media (min-width: 1000px) {
+  //   font-size: 30px;
+  // }
+}
+
+p {
+  font-size: $text-small-desktop;
+  line-height: 130%;
+
+  @media (min-width: 750px) {
+    font-size: $text-small-desktop;
+  }
+
+  @media (min-width: 1000px) {
+    font-size: $text-small-desktop;
+    line-height: 140%;
+  }
+}

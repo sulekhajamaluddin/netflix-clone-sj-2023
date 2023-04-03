@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "key": "email",
+    "placeholder": "Email",
+    "type": "email",
+    "name": "email",
+    "required": true,
+    "aria_label": "email"
+  },
+  {
+    "id": 2,
+    "key": "password",
+    "placeholder": "Add a password",
+    "type": "password",
+    "name": "password",
+    "required": true,
+    "aria_label": "password"
+  }
+]

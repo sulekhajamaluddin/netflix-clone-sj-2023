@@ -1,0 +1,28 @@
+{
+  "titles": [
+    {
+      "id": 1,
+      "logoURL": "",
+      "thumbnailURL": "",
+      "backgroundURL": "",
+      "heading": "",
+      "description": ""
+    },
+    {
+      "id": 2,
+      "logoURL": "",
+      "thumbnailURL": "",
+      "backgroundURL": "",
+      "heading": "",
+      "description": ""
+    },
+    {
+      "id": 3,
+      "logoURL": "",
+      "thumbnailURL": "",
+      "backgroundURL": "",
+      "heading": "",
+      "description": ""
+    }
+  ]
+}

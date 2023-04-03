@@ -1,0 +1,39 @@
+.nav-container {
+  height: 50px;
+  width: 100%;
+  padding: 0 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgba(0, 0, 0, 0.3);
+
+  .menu-holder {
+    display: flex;
+    align-items: baseline;
+
+    .bars {
+      height: 26px;
+      width: 26px;
+      margin-right: 20px;
+      color: white;
+    }
+
+    .logo {
+      height: 24px;
+    }
+  }
+
+  input {
+    box-sizing: content-box;
+    width: 96px;
+    font-size: 16px;
+    padding: 4px 8px;
+    border: 1px solid $color-light-grey;
+    background-color: black;
+    color: $color-light-grey;
+  }
+}
