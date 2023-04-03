@@ -1,14 +1,40 @@
 .hero {
   position: relative;
+  height: 56vw;
 
   .background {
     width: 100%;
+    height: 56vw;
+    max-height: 100vh;
+    object-fit: cover;
   }
 
-  .title-logo {
+  .overlay {
     position: absolute;
-    bottom: 30%;
-    left: 5%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 56vw;
+    background: linear-gradient(
+      to top right,
+      rgb(20, 20, 20),
+      rgba(20, 20, 20, 0)
+    );
+  }
+}
+
+.content-container {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  .title-logo {
+    width: 100%;
+    height: 40vw;
+    justify-content: flex-end;
+    margin-bottom: 22px;
+    padding: 0 $space-medium;
     gap: 4px;
 
     .logo {
@@ -19,7 +45,7 @@
     .title {
       color: white;
       font-family: "Roboto", sans-serif;
-      font-size: 25px;
+      font-size: 20px;
       padding-left: 5px;
     }
   }

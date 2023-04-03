@@ -3,6 +3,8 @@ import {
   faBars,
   faPlay,
   faCircleInfo,
+  faChevronLeft,
+  faChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
 
-library.add(faBars, faPlay, faCircleInfo);
+library.add(faBars, faPlay, faCircleInfo, faChevronLeft, faChevronRight);

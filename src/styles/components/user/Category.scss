@@ -1,0 +1,37 @@
+.category {
+  color: white;
+
+  h2 {
+    font-size: 12px;
+    font-weight: 400;
+    color: #e5e5e5;
+    padding: 0 $space-medium;
+  }
+  .card-holder {
+    display: flex;
+    justify-content: center;
+    gap: 2px;
+
+    .slider {
+      display: flex;
+      width: calc(100% - 4%);
+      gap: 2px;
+    }
+
+    .title-card {
+      width: 50%;
+      aspect-ratio: 16/9;
+      flex-shrink: 0;
+      background-color: white;
+    }
+
+    .handle {
+      width: 4%;
+      background-color: hsla(0, 0%, 8%, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+  }
+}

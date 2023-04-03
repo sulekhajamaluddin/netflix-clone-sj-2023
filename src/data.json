@@ -2,27 +2,30 @@
   "titles": [
     {
       "id": 1,
-      "logoURL": "",
       "thumbnailURL": "",
       "backgroundURL": "",
       "heading": "",
-      "description": ""
+      "description": "",
+      "category": "",
+      "display_section": ""
     },
     {
       "id": 2,
-      "logoURL": "",
       "thumbnailURL": "",
       "backgroundURL": "",
       "heading": "",
-      "description": ""
+      "description": "",
+      "category": "",
+      "display_section": ""
     },
     {
       "id": 3,
-      "logoURL": "",
       "thumbnailURL": "",
       "backgroundURL": "",
       "heading": "",
-      "description": ""
+      "description": "",
+      "category": "",
+      "display_section": ""
     }
   ]
 }
