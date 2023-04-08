@@ -1,10 +1,10 @@
 .hero {
   position: relative;
-  height: 56vw;
+  height: 58vw;
 
   .background {
     width: 100%;
-    height: 56vw;
+    height: 58vw;
     max-height: 100vh;
     object-fit: cover;
   }
@@ -14,7 +14,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 56vw;
+    height: 58vw;
     background: linear-gradient(
       to top right,
       rgb(20, 20, 20),
@@ -31,10 +31,10 @@
 
   .title-logo {
     width: 100%;
-    height: 40vw;
+    height: 42vw;
     justify-content: flex-end;
     margin-bottom: 22px;
-    padding: 0 $space-medium;
+    padding: 0 5%;
     gap: 4px;
 
     .logo {

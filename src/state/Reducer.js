@@ -1,7 +1,7 @@
 export default function Reducer(state, action) {
   switch (action.type) {
     case "initialise":
-      return onInitialise(state, action);
+      return onInitialise(action);
     case "create":
       return onCreate(state, action);
     case "update":
@@ -15,12 +15,13 @@ export default function Reducer(state, action) {
   }
 }
 
-function onInitialise(state, action) {
+function onInitialise(action) {
   const data = action.payload;
   return data;
 }
 
 function onCreate(state, action) {
+  console.log("inside create");
   const newItem = action.payload;
   return [...state, newItem];
 }

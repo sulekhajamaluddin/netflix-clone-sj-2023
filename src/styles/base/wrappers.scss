@@ -1,5 +1,7 @@
 .play-btn,
-.info-btn {
+.info-btn,
+.add-btn,
+.back-btn {
   height: 25px;
   width: 75px;
   border-radius: 4px;
@@ -7,6 +9,24 @@
   text-align: center;
   color: black;
   cursor: pointer;
+}
+
+.add-btn,
+.back-btn {
+  height: 50px;
+  width: 150px;
+  background-color: $color-dark-grey;
+  color: white;
+  font-weight: 400;
+  padding: $space-medium;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.back-btn {
+  background-color: $color-light-grey;
+  color: $color-dark-grey;
 }
 
 .info-btn {
@@ -21,6 +41,12 @@
   display: flex;
   gap: $space-small;
   justify-content: flex-start;
+}
+
+.btn-holder {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
 .icon {

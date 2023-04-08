@@ -1,0 +1,44 @@
+.title-card {
+  width: 100%;
+  max-width: 400px;
+  border-top: 1px solid $color-light-grey;
+  border-bottom: 1px solid $color-light-grey;
+  display: flex;
+  flex-direction: column;
+  gap: $space-medium;
+  padding: $space-medium 0;
+
+  .image-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    .image {
+      display: flex;
+      flex-direction: column;
+    }
+
+    img {
+      border: 1px $color-light-grey solid;
+      padding: $space-small;
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      cursor: pointer;
+    }
+
+    img:nth-of-type(2) {
+      margin-left: $space-small;
+    }
+  }
+
+  .btn-holder {
+    width: auto;
+    gap: $space-medium;
+  }
+
+  .add-btn {
+    height: 30px;
+    background-color: $color-red;
+  }
+}

@@ -1,0 +1,18 @@
+[
+  {
+    "id": 3,
+    "key": "backgroundURL",
+    "type": "text",
+    "label": "Background Image",
+    "required": true,
+    "disabled": false
+  },
+  {
+    "id": 5,
+    "key": "thumbnailURL",
+    "type": "text",
+    "label": "Thumbnail URL",
+    "required": true,
+    "disabled": false
+  }
+]

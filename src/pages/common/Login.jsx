@@ -40,7 +40,7 @@ export default function Login() {
       <div className="login flex-column">
         <h1>Sign In</h1>
         <form ref={formRef} className="form" onSubmit={(e) => onSubmit(e)}>
-          <FormFieldGenerator data={authData} />
+          <FormFieldGenerator fields={authData} />
           <input type="submit" value={"Sign In"}></input>
         </form>
         <div className="link flex-column">

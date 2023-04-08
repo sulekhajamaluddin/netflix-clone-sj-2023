@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "key": "category",
+    "type": "text",
+    "label": "Title Category",
+    "required": true,
+    "disabled": true
+  },
+  {
+    "id": 2,
+    "key": "heading",
+    "type": "text",
+    "label": "Headline",
+    "required": true,
+    "disabled": false
+  },
+  {
+    "id": 4,
+    "key": "description",
+    "type": "textarea",
+    "label": "Description",
+    "required": true,
+    "disabled": false
+  }
+]

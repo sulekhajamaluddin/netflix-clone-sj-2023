@@ -1,0 +1,23 @@
+.seasons {
+  width: 100%;
+  max-width: 550px;
+  min-height: 100vh;
+  margin: auto;
+  padding: $space-big;
+  text-align: center;
+  background-color: white;
+  gap: $space-x-big;
+  color: $color-dark-grey;
+
+  .red-bg {
+    width: 100%;
+    padding: $space-medium;
+    background-color: $color-red;
+    border-radius: 4px;
+    color: white;
+  }
+
+  .add-btn {
+    align-self: flex-start;
+  }
+}

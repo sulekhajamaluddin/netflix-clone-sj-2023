@@ -5,6 +5,7 @@ import { ref, uploadBytes } from "firebase/storage";
 import { cloudStorage } from "./cloudSetUp";
 
 export async function uploadFile(file, filePath) {
+  console.log(file, filePath);
   const reference = ref(cloudStorage, filePath);
 
   await uploadBytes(reference, file);

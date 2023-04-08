@@ -1,7 +1,7 @@
 import { collection, getDocs } from "firebase/firestore";
 import { database } from "./databaseSetUp";
 
-export async function readDocuments(collectionName) {
+export default async function readDocuments(collectionName) {
   const documentReference = collection(database, collectionName);
   const documents = await getDocs(documentReference);
 

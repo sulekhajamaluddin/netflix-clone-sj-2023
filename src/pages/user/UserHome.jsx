@@ -27,6 +27,9 @@ export default function UserHome() {
           </div>
         </div>
         <Category />
+        <Category />
+        <Category />
+        <Category />
       </div>
     </main>
   );

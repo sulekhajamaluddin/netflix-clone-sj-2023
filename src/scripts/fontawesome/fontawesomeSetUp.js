@@ -5,6 +5,16 @@ import {
   faCircleInfo,
   faChevronLeft,
   faChevronRight,
+  faPenToSquare,
+  faTrashCan,
 } from "@fortawesome/free-solid-svg-icons";
 
-library.add(faBars, faPlay, faCircleInfo, faChevronLeft, faChevronRight);
+library.add(
+  faBars,
+  faPlay,
+  faCircleInfo,
+  faChevronLeft,
+  faChevronRight,
+  faPenToSquare,
+  faTrashCan
+);

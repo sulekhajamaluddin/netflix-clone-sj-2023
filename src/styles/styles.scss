@@ -7,6 +7,8 @@
 //Components
 //Common
 @import "./components/common/SignUpNavbar.scss";
+@import "./components/common/Loader.scss";
+@import "./components/common/Modal.scss";
 
 //User
 @import "./components/user/Navbar.scss";
@@ -16,6 +18,8 @@
 
 //Admin
 @import "./components/admin/CategoryCard.scss";
+@import "./components/admin/Form.scss";
+@import "./components/admin/TitleCard.scss";
 
 //Pages
 //Common
@@ -27,3 +31,5 @@
 
 //Admin
 @import "./pages/admin/AdminHome.scss";
+@import "./pages/admin/TitleCategory.scss";
+@import "./pages/admin/Seasons.scss";
