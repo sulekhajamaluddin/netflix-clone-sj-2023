@@ -1,16 +1,21 @@
-export default function InputSelect({ item, state }) {
+export default function InputSelect({ item, seasons, state }) {
   const [form, setForm] = state;
+  const options = seasons.map((season) => (
+    <option key={season.seasonNumber}>{season.seasonNumber}</option>
+  ));
 
   return (
     <label className="input-select">
       {item.label}
-      <select>
+      <select
         value={form[item.key]}
-        onChange=
-        {(event) => setForm({ ...form, [item.key]: event.target.value })}
+        onChange={(event) =>
+          setForm({ ...form, [item.key]: Number(event.target.value) })
+        }
         required={item.required}
-        <option>Hello</option>
-        <option>Hai</option>
+      >
+        <option value="0">No season selected</option>
+        {options}
       </select>
     </label>
   );

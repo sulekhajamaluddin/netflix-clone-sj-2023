@@ -17,7 +17,6 @@ export default function FormImage({ data, imageKey }) {
 
   // Method
   async function onUpload(event) {
-    console.log(event.target.files[0]);
     uploadImage(event.target.files[0]);
   }
 

@@ -1,0 +1,8 @@
+[
+  {
+    "id": 1,
+    "key": "seasonNumber",
+    "type": "select",
+    "label": "Season selected"
+  }
+]

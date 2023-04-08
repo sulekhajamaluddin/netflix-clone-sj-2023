@@ -21,7 +21,6 @@ function onInitialise(action) {
 }
 
 function onCreate(state, action) {
-  console.log("inside create");
   const newItem = action.payload;
   return [...state, newItem];
 }
