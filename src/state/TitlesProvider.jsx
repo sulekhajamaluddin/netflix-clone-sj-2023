@@ -1,5 +1,5 @@
 // Node modules
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { createContext, useReducer } from "react";
 import TitlesReducer from "../state/Reducer";
 import SeasonsReducer from "../state/Reducer";
@@ -11,6 +11,9 @@ export function TitlesProvider({ children }) {
   //State
   const [titles, titlesDispatch] = useReducer(TitlesReducer, []);
   const [seasons, seasonsDispatch] = useReducer(SeasonsReducer, []);
+  const [searchedTitles, setSearchedTitles] = useState([]);
+  console.log(searchedTitles);
+  const [titlesType, setTitlesType] = useState("default");
 
   //Properties
   const values = {
@@ -18,6 +21,10 @@ export function TitlesProvider({ children }) {
     titlesDispatch,
     seasons,
     seasonsDispatch,
+    searchedTitles,
+    setSearchedTitles,
+    titlesType,
+    setTitlesType,
   };
 
   return <Context.Provider value={values}>{children}</Context.Provider>;

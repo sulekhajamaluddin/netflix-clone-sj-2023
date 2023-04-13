@@ -13,7 +13,7 @@
       width: 100%;
     }
 
-    button {
+    .close {
       position: absolute;
       top: 7px;
       right: 7px;
@@ -24,6 +24,27 @@
       font-size: 20px;
       font-weight: 400;
       border-radius: 50%;
+    }
+
+    .play-btn {
+      position: absolute;
+      bottom: 25%;
+      left: 3.5em;
+      width: 65px;
+      height: 32px;
+      background: white;
+
+      .play {
+        height: 14px;
+        width: 14px;
+        color: black;
+      }
+
+      span {
+        font-size: 10px;
+        font-weight: 500;
+        color: black;
+      }
     }
   }
 
@@ -52,10 +73,32 @@
   .details {
     padding: 0 3em;
     background-color: black;
+    height: 100%;
     padding-bottom: 42px;
 
     .heading {
       font-size: 22px;
+    }
+  }
+}
+
+@media (min-width: 1100px) {
+  .title-details {
+    .bg {
+      .play-btn {
+        width: auto;
+        height: auto;
+        padding: $space-small $space-big;
+        .play {
+          height: 22px;
+          width: 22px;
+        }
+
+        span {
+          font-size: $text-desktop;
+          font-weight: 400;
+        }
+      }
     }
   }
 }

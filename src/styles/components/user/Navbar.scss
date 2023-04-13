@@ -61,7 +61,13 @@
         padding: 4px 8px;
         font-size: 16px;
         background-color: black;
+        color: white;
         width: 114px;
+        border: none;
+      }
+
+      input:focus {
+        outline-width: 0;
       }
     }
 
@@ -178,11 +184,10 @@
 
         input {
           opacity: 1;
-          padding-left: 25px;
+          padding-left: 40px;
         }
 
         .glass {
-          // background: black;
           z-index: 100;
         }
       }
