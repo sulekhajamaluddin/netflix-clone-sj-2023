@@ -1,4 +1,6 @@
+//Node Modules
 import { collection, addDoc } from "firebase/firestore";
+//Project Files
 import { database } from "./databaseSetUp";
 
 export async function createDocument(collectionName, data) {

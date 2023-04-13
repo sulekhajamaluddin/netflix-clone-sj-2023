@@ -11,3 +11,17 @@
     font-weight: 500;
   }
 }
+
+@media (min-width: 1100px) {
+  .play-btn {
+    .play {
+      height: 22px;
+      width: 22px;
+    }
+
+    span {
+      font-size: $text-desktop;
+      font-weight: 400;
+    }
+  }
+}

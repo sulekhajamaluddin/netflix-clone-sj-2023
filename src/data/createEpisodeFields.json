@@ -1,0 +1,19 @@
+[
+  {
+    "id": 1,
+    "key": "episodeNumber",
+    "type": "number",
+    "label": "Episode number",
+    "required": true,
+    "disabled": false,
+    "min": 1
+  },
+  {
+    "id": 2,
+    "key": "episodeURL",
+    "type": "text",
+    "label": "Link to the episode",
+    "required": true,
+    "disabled": false
+  }
+]

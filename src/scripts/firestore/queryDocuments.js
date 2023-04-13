@@ -1,4 +1,6 @@
+//Node modules
 import { collection, getDocs, query, where } from "firebase/firestore";
+//Project files
 import { database } from "./databaseSetUp";
 
 export async function queryDocuments(collectionName, param, id) {

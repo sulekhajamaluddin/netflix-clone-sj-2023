@@ -7,7 +7,12 @@ import {
   faChevronRight,
   faPenToSquare,
   faTrashCan,
+  faMagnifyingGlass,
+  faBell,
+  faCaretDown,
 } from "@fortawesome/free-solid-svg-icons";
+
+import { faFacebookF } from "@fortawesome/free-brands-svg-icons";
 
 library.add(
   faBars,
@@ -16,5 +21,9 @@ library.add(
   faChevronLeft,
   faChevronRight,
   faPenToSquare,
-  faTrashCan
+  faTrashCan,
+  faMagnifyingGlass,
+  faBell,
+  faCaretDown,
+  faFacebookF
 );

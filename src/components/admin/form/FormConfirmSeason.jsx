@@ -1,20 +1,23 @@
 // Project files
 import { createDocument } from "../../../scripts/firestore/createDocument";
 import { useModal } from "../../../state/ModalProvider";
-import { useUser } from "../../../state/UserProvider";
+import { useTitles } from "../../../state/TitlesProvider";
 
-export default function FormConfirm({ collection }) {
+export default function FormConfirmSeason({ collection }) {
   // Global state
   const { closeModal } = useModal();
-  const { seasons, seasonsDispatch } = useUser();
+  const { seasons, seasonsDispatch } = useTitles();
 
   // Method
   async function onConfirm() {
     const newSeason = {
       seasonNumber: seasons.length + 1,
     };
-    await createDocument(collection, newSeason);
-    seasonsDispatch({ type: "create", payload: newSeason });
+    const documentId = await createDocument(collection, newSeason);
+    seasonsDispatch({
+      type: "create",
+      payload: { ...newSeason, id: documentId },
+    });
     closeModal();
   }
 
@@ -22,7 +25,9 @@ export default function FormConfirm({ collection }) {
     <div className="form">
       <h2>Add a new season</h2>
       <p>Do you want to create a new season: {seasons.length + 1}</p>
-      <button onClick={onConfirm}>Confirm</button>
+      <button className="confirm" onClick={onConfirm}>
+        Confirm
+      </button>
     </div>
   );
 }

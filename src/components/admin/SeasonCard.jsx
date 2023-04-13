@@ -1,19 +1,37 @@
 //Node Modules
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+
 //Project Files
-import { useUser } from "../../state/UserProvider";
-import { useModal } from "../../state/ModalProvider";
-import FormCreate from "../../components/admin/form/FormCreate";
 import readDocuments from "../../scripts/firestore/readDocuments";
+import DeleteIcon from "../../components/admin/DeleteIcon";
+import AddButton from "./AddButton";
+import Episode from "./Episode";
 
 export default function SeasonCard({ season }) {
-  const { episodes, episodesDispatch } = useUser();
-  const { openModal } = useModal();
+  console.log(season);
   const { id } = useParams();
-
   const [isActive, setIsActive] = useState(false);
+  const [episodes, setEpisodes] = useState([]);
   const COLLECTION_NAME = `titles/${id}/seasons/${season.id}/episodes`;
+
+  useEffect(() => {
+    console.log("Inside useEffect");
+    async function init() {
+      const data = await readDocuments(COLLECTION_NAME);
+      setEpisodes(data);
+    }
+    init();
+  }, [episodes.length]);
+
+  //Components
+  const addButton = (
+    <AddButton
+      path={COLLECTION_NAME}
+      text="episode"
+      state={[episodes, setEpisodes]}
+    />
+  );
 
   const content =
     episodes.length === 0 ? (
@@ -22,44 +40,28 @@ export default function SeasonCard({ season }) {
       </p>
     ) : (
       episodes.map((episode) => (
-        <div className="accordion-content">
-          <a href={episode.episodeURL} target="_blank" rel="noreferrer">
-            Episode: {episode.episodeNumber}
-          </a>
-        </div>
+        <Episode
+          key={episode.id}
+          episode={episode}
+          collectionName={COLLECTION_NAME}
+          state={[episodes, setEpisodes]}
+        />
       ))
     );
 
-  useEffect(() => {
-    loadData(COLLECTION_NAME);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  async function loadData(collection, titlesCollection) {
-    const data = await readDocuments(collection).catch(onFail);
-    onSuccess(data);
-  }
-
-  function onSuccess(data, title) {
-    episodesDispatch({ type: "initialise", payload: data });
-  }
-
-  function onFail() {
-    // setStatus("error");
-  }
-
   return (
-    <div className="season-card">
-      <div className="accordion-item">
-        <div className="accordion-title" onClick={() => setIsActive(!isActive)}>
-          <div>Season {season.seasonNumber}</div>
-          {isActive ? "-" : "+"}
+    <div className="season-card-container">
+      <div className="season-card">
+        <div className="accordion-item">
+          <div className="title" onClick={() => setIsActive(!isActive)}>
+            <span>Season {season.seasonNumber}</span>
+            {isActive ? "-" : "+"}
+          </div>
+          {isActive && content}
         </div>
-        {isActive && content}
+        {isActive && addButton}
       </div>
-      {isActive && (
-        <button onClick={() => openModal(<FormCreate />)}>Add episode</button>
-      )}
+      <DeleteIcon id={season.id} path={`titles/${id}/seasons`} type="season" />
     </div>
   );
 }

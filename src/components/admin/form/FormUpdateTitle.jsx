@@ -5,12 +5,12 @@ import { useState } from "react";
 import FieldsGenerator from "../../common/form/FormFieldGenerator";
 import { updateDocument } from "../../../scripts/firestore/updateDocument";
 import { useModal } from "../../../state/ModalProvider";
-import { useUser } from "../../../state/UserProvider";
+import { useTitles } from "../../../state/TitlesProvider";
 
 export default function FormUpdate({ title, fields }) {
   // Global state
   const { closeModal } = useModal();
-  const { titlesDispatch } = useUser();
+  const { titlesDispatch } = useTitles();
 
   // Local state
   const [form, setForm] = useState(title);
@@ -24,12 +24,10 @@ export default function FormUpdate({ title, fields }) {
   }
 
   return (
-    <div>
-      <h2>Edit item</h2>
-      <form className="form" onSubmit={(event) => onSubmit(event)}>
-        <FieldsGenerator fields={fields} state={[form, setForm]} />
-        <button>Confirm</button>
-      </form>
-    </div>
+    <form className="form" onSubmit={(event) => onSubmit(event)}>
+      <h2>Edit title</h2>
+      <FieldsGenerator fields={fields} state={[form, setForm]} />
+      <button className="confirm">Confirm</button>
+    </form>
   );
 }

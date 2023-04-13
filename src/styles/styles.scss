@@ -6,7 +6,7 @@
 
 //Components
 //Common
-@import "./components/common/SignUpNavbar.scss";
+@import "./components/common/Navbar.scss";
 @import "./components/common/Loader.scss";
 @import "./components/common/Modal.scss";
 
@@ -15,6 +15,9 @@
 @import "./components/user/PlayButton.scss";
 @import "./components/user/InfoButton.scss";
 @import "./components/user/Category.scss";
+@import "./components/user/Footer.scss";
+@import "./components/user/TitleDetails.scss";
+@import "./components/user/SeriesDetails.scss";
 
 //Admin
 @import "./components/admin/CategoryCard.scss";
@@ -26,6 +29,7 @@
 //Common
 @import "./pages/common/SignUp.scss";
 @import "./pages/common/Login.scss";
+@import "./pages/common/RecoverPassword.scss";
 
 //User
 @import "./pages/user/UserHome.scss";
@@ -34,3 +38,4 @@
 @import "./pages/admin/AdminHome.scss";
 @import "./pages/admin/TitleCategory.scss";
 @import "./pages/admin/Seasons.scss";
+@import "./pages/admin/SortTitles.scss";

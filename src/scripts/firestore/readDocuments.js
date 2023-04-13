@@ -1,4 +1,6 @@
+//Node modules
 import { collection, getDocs } from "firebase/firestore";
+//Project files
 import { database } from "./databaseSetUp";
 
 export default async function readDocuments(collectionName) {

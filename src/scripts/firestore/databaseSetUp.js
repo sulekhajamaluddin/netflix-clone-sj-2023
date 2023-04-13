@@ -1,3 +1,4 @@
+//Node modules
 import { firebaseApp } from "../firebase/firebaseSetUp";
 import { getFirestore } from "firebase/firestore";
 

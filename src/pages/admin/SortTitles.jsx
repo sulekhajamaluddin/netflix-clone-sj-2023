@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 
 //Project Files
-import { useUser } from "../../state/UserProvider";
+import { useTitles } from "../../state/TitlesProvider";
 import readDocuments from "../../scripts/firestore/readDocuments";
 import BackButton from "../../components/common/BackButton";
 import Loader from "../../components/common/Loader";
@@ -10,7 +10,7 @@ import Error from "../../pages/common/Error";
 
 export default function SortTitles() {
   //Global state
-  const { titles, titlesDispatch } = useUser();
+  const { titles, titlesDispatch } = useTitles();
 
   //Local State
   const [status, setStatus] = useState("loading");
@@ -44,9 +44,14 @@ export default function SortTitles() {
   if (status === "error") return <Error />;
 
   return (
-    <div className="titles-list">
-      {Titles}
-      <BackButton goToLocation={"/"} />
+    <div className="titles-list-container">
+      <div className="sorted-list">
+        <select></select>
+      </div>
+      <div className="titles-list">
+        {Titles}
+        <BackButton goToLocation={"/"} />
+      </div>
     </div>
   );
 }

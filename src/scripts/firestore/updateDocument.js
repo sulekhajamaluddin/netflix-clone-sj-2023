@@ -1,4 +1,6 @@
+//Node modules
 import { doc, updateDoc } from "firebase/firestore";
+//Project files
 import { database } from "./databaseSetUp";
 
 export async function updateDocument(collectionName, data) {

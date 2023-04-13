@@ -4,13 +4,13 @@ import { useState } from "react";
 // Project files
 import { updateDocument } from "../../../scripts/firestore/updateDocument";
 import { useModal } from "../../../state/ModalProvider";
-import { useUser } from "../../../state/UserProvider";
+import { useTitles } from "../../../state/TitlesProvider";
 import { getURL } from "../../../scripts/cloudStorage/getURL";
 
 export default function FormImage({ data, imageKey }) {
   // Global state
   const { closeModal } = useModal();
-  const { titlesDispatch } = useUser();
+  const { titlesDispatch } = useTitles();
   //Local state
   const [imageURL, setImageURL] = useState("");
   const [disabled, setDisabled] = useState(true);
@@ -21,7 +21,7 @@ export default function FormImage({ data, imageKey }) {
   }
 
   async function uploadImage(file) {
-    const filePath = `titles/${data.id}_${file.name}`;
+    const filePath = `titles/${data.id}_${imageKey}_${file.name}`;
     const url = await getURL(file, filePath);
     setImageURL(url);
     setDisabled(false);
@@ -44,7 +44,11 @@ export default function FormImage({ data, imageKey }) {
         required
         onChange={(event) => onUpload(event)}
       />
-      <input type="submit" value="Upload" disabled={disabled}></input>
+      <input
+        type="submit"
+        disabled={disabled}
+        value={`Upload ${imageKey.slice(0, -3)}`}
+      ></input>
     </form>
   );
 }

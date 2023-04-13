@@ -1,0 +1,84 @@
+.navbar {
+  height: 50px;
+  padding: 5px 3%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  border-bottom: 1px solid $color-light-grey;
+
+  .logo {
+    height: 23px;
+  }
+
+  .authLink {
+    font-size: 14px;
+    font-weight: 500;
+    color: $color-dark-grey;
+  }
+}
+
+.signup-navbar,
+.recover-navbar {
+  background: white;
+  align-items: center;
+}
+
+.recover-navbar {
+  .authLink {
+    color: $color-red;
+  }
+}
+
+.login-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: black;
+  border-bottom: none;
+}
+
+@media (min-width: 441px) {
+  .login-navbar {
+    height: 90px;
+    align-items: center;
+
+    .logo {
+      height: 45px;
+    }
+
+    .authLink {
+      font-size: 18px;
+    }
+  }
+}
+
+@media (min-width: 550px) {
+  .signup-navbar,
+  .recover-navbar {
+    height: 75px;
+
+    .logo {
+      height: 45px;
+    }
+  }
+}
+
+@media (min-width: 740px) {
+  .login-navbar {
+    background-color: transparent;
+  }
+
+  .signup-navbar,
+  .recover-navbar {
+    height: 90px;
+    .authLink {
+      font-size: 19px;
+    }
+  }
+
+  .recover-navbar {
+    background-color: black;
+    border-bottom: none;
+  }
+}

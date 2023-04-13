@@ -1,45 +1,66 @@
-.season-card {
+.season-card-container {
   width: 100%;
   display: flex;
-  flex-direction: column;
-
-  .accordion {
-    max-width: 600px;
-    margin: 2rem auto;
-  }
-
-  .accordion-title {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    cursor: pointer;
-    background-color: #21aeca;
-  }
-
-  .accordion-title:hover {
-    background-color: #3ab4cc;
-  }
-
-  .accordion-title,
-  .accordion-content {
-    padding: 1rem;
-  }
-
-  .accordion-content {
-    background-color: #39b9d2;
-  }
+  align-items: flex-start;
+  gap: $space-medium;
 
   button {
-    align-self: flex-start;
+    margin-top: $space-small;
   }
 
-  @media screen and (max-width: 700px) {
-    body {
-      font-size: 18px;
-    }
+  .season-card {
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    color: white;
 
     .accordion {
-      width: 90%;
+      margin: $space-x-big auto;
+    }
+
+    .title {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      cursor: pointer;
+      background-color: $color-red;
+    }
+
+    .title:hover {
+      background-color: #cd5c5c;
+    }
+
+    .title,
+    .accordion-content {
+      padding: $space-medium;
+    }
+
+    .accordion-content {
+      background-color: $color-light-grey;
+      color: $color-dark-grey;
+      border: 1px solid white;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+
+      a {
+        font-size: 17px;
+        text-decoration: underline;
+        margin-top: $space-small;
+      }
+
+      a:hover {
+        color: white;
+      }
+
+      .edit-icon {
+        font-size: 20px;
+      }
+
+      .delete-icon {
+        font-size: 19px;
+      }
     }
   }
 }

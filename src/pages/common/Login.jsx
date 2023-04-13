@@ -1,24 +1,27 @@
 //Node Modules
-import { useRef } from "react";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+
 //Project Files
-import loginUser from "../../scripts/authentication/loginUser";
 import { useUser } from "../../state/UserProvider";
 import { readDocument } from "../../scripts/firestore/readDocument";
-import authData from "../../data/authData.json";
-import FormFieldGenerator from "../../components/common/form/FormFieldGenerator";
+import loginUser from "../../scripts/authentication/loginUser";
 import setUserSession from "../../scripts/utils/setUserSession";
+import fields from "../../data/authFields.json";
+import data from "../../data/authData.json";
+import FormFieldGenerator from "../../components/common/form/FormFieldGenerator";
 
 export default function Login() {
+  //Global state
   const navigate = useNavigate();
   const { setCurrentUserId, dispatch } = useUser();
-  const formRef = useRef();
+
+  //Local state
+  const [form, setForm] = useState(data);
 
   async function onSubmit(event) {
     event.preventDefault();
-    const email = formRef.current.email.value;
-    const password = formRef.current.password.value;
-    const result = await loginUser(email, password);
+    const result = await loginUser(form.email, form.password);
     result.status ? onSuccess(result) : onFailure(result);
   }
 
@@ -39,12 +42,14 @@ export default function Login() {
     <div className="login-container">
       <div className="login flex-column">
         <h1>Sign In</h1>
-        <form ref={formRef} className="form" onSubmit={(e) => onSubmit(e)}>
-          <FormFieldGenerator fields={authData} />
+        <form className="form" onSubmit={(e) => onSubmit(e)}>
+          <FormFieldGenerator fields={fields} state={[form, setForm]} />
           <input type="submit" value={"Sign In"}></input>
         </form>
         <div className="link flex-column">
-          <Link to="/recover-password">Forgot password?</Link>
+          <Link className="help" to="/recover">
+            Need help?
+          </Link>
           <span className="lead-signup">
             New to Netflix??<Link to="/signup">Sign up now</Link>
           </span>

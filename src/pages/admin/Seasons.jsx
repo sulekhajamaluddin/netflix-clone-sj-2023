@@ -3,35 +3,32 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 //Project Files
-import { useUser } from "../../state/UserProvider";
+import { useTitles } from "../../state/TitlesProvider";
 import { useModal } from "../../state/ModalProvider";
 import readDocuments from "../../scripts/firestore/readDocuments";
+import { readDocument } from "../../scripts/firestore/readDocument";
 import SeasonCard from "../../components/admin/SeasonCard";
 import Loader from "../../components/common/Loader";
-import Error from "../common/Error";
 import EmptyContent from "../../components/admin/EmptyContent";
-import { readDocument } from "../../scripts/firestore/readDocument";
-import FormConfirm from "../../components/admin/form/FormConfirm";
-import FormFieldGenerator from "../../components/common/form/FormFieldGenerator";
-import fields from "../../data/selectSeasonField.json";
-import data from "../../data/seasonData.json";
+import FormConfirmSeason from "../../components/admin/form/FormConfirmSeason";
+import BackButton from "../../components/common/BackButton";
+import Error from "../common/Error";
 
 export default function Seasons() {
   //Global state
-  const { seasons, seasonsDispatch } = useUser();
+  const { seasons, seasonsDispatch } = useTitles();
   const { openModal } = useModal();
   const { id } = useParams();
 
   //Local State
   const [status, setStatus] = useState("loading");
-  const [form, setForm] = useState(data);
   const [title, setTitle] = useState("");
 
   // Properties
   const COLLECTION_NAME = `titles/${id}/seasons`;
   const TITLES_COLLECTION = "titles";
   const message = `This series does not have any seasons yet`;
-  const confirmForm = <FormConfirm collection={COLLECTION_NAME} />;
+  const confirmForm = <FormConfirmSeason collection={COLLECTION_NAME} />;
 
   useEffect(() => {
     loadData(COLLECTION_NAME, TITLES_COLLECTION);
@@ -54,34 +51,26 @@ export default function Seasons() {
     setStatus("error");
   }
 
-  //Components
-  //   const Season = seasons.filter(
-  //     (season) => season.seasonNumber === form.seasonNumber
-  //   );
-
-  const Seasons = seasons.map((season) => (
-    <SeasonCard key={season.id} season={season} />
-  ));
+  const Seasons = seasons.map((season) => {
+    return <SeasonCard key={season.seasonNumber} season={season} />;
+  });
 
   if (status === "loading") return <Loader />;
   if (status === "error") return <Error />;
 
   return (
-    <div className="seasons flex-column-center">
-      <h1>{title}</h1>
-      {seasons.length === 0 && <EmptyContent message={message} />}
-      <div className="btn-holder">
-        <button className="add-btn" onClick={() => openModal(confirmForm)}>
-          Add season
-        </button>
-        {/* <FormFieldGenerator
-          fields={fields}
-          seasons={seasons}
-          state={[form, setForm]}
-        /> */}
+    <div className="seasons-container">
+      <div className="seasons flex-column-center">
+        <h1>{title}</h1>
+        {seasons.length === 0 && <EmptyContent message={message} />}
+        <div className="btn-holder">
+          <button className="add-btn" onClick={() => openModal(confirmForm)}>
+            Add season
+          </button>
+          <BackButton goToLocation={-1} />
+        </div>
+        {Seasons}
       </div>
-      {/* {Season[0] && <SeasonCard season={Season[0]} />} */}
-      {Seasons}
     </div>
   );
 }

@@ -7,9 +7,8 @@ export default function AdminHome() {
 
   //Components
   const Categories = categories.map((category) => {
-    const state = { type: `${category}` };
     return (
-      <Link to={"/category"} state={state} key={category} className="card">
+      <Link to={`/${category}`} key={category} className="card">
         {category}
       </Link>
     );

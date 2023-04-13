@@ -5,7 +5,7 @@ import logo from "../../assets/logo.png";
 
 export default function Navbar() {
   return (
-    <nav className="navbar">
+    <nav className="navbar signup-navbar">
       <img className="logo" src={logo} alt="Netflix" />
       <Link className="authLink" to="/">
         Sign In

@@ -5,7 +5,6 @@ import getLocalStorage from "../scripts/localStorage/getLocalStorage";
 import UserReducer from "../state/Reducer";
 import TitlesReducer from "../state/Reducer";
 import SeasonsReducer from "../state/Reducer";
-import EpisodesReducer from "../state/Reducer";
 
 //Properties
 const Context = createContext(null);
@@ -19,7 +18,6 @@ export function UserProvider({ children }) {
   const [uid, setUid] = useState(getLocalStorage("uid") || null);
   const [titles, titlesDispatch] = useReducer(TitlesReducer, []);
   const [seasons, seasonsDispatch] = useReducer(SeasonsReducer, []);
-  const [episodes, episodesDispatch] = useReducer(EpisodesReducer, []);
 
   function setCurrentUserId(currentUid) {
     setUid(currentUid);
@@ -35,8 +33,6 @@ export function UserProvider({ children }) {
     titlesDispatch,
     seasons,
     seasonsDispatch,
-    episodes,
-    episodesDispatch,
   };
 
   return <Context.Provider value={values}>{children}</Context.Provider>;

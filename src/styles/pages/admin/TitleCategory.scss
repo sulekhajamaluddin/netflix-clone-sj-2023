@@ -1,30 +1,36 @@
-.title-category {
+.title-category-page {
   width: 100%;
-  max-width: 550px;
   min-height: 100vh;
-  margin: auto;
-  padding: $space-big;
-  text-align: center;
   background-color: white;
-  gap: $space-x-big;
-  color: $color-dark-grey;
 
-  .header {
-    span {
-      text-transform: capitalize;
-      font-size: 20px;
-    }
-  }
-
-  .red-bg {
+  .title-category {
     width: 100%;
-    padding: $space-medium;
-    background-color: $color-red;
-    border-radius: 4px;
-    color: white;
-  }
+    max-width: 550px;
+    min-height: 100vh;
+    margin: auto;
+    padding: $space-big;
+    text-align: center;
+    background-color: white;
+    gap: $space-x-big;
+    color: $color-dark-grey;
 
-  .btn-holder {
-    max-width: 400px;
+    .header {
+      span {
+        text-transform: capitalize;
+        font-size: 20px;
+      }
+    }
+
+    .red-bg {
+      width: 100%;
+      padding: $space-medium;
+      background-color: $color-red;
+      border-radius: 4px;
+      color: white;
+    }
+
+    .btn-holder {
+      max-width: 400px;
+    }
   }
 }

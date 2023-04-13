@@ -17,6 +17,7 @@ export default function InputField({ item, state }) {
         placeholder={item.placeholder}
         name={item.name}
         aria-label={item.aria_label}
+        min={item.min}
       />
     </label>
   );

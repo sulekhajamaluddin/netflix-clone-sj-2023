@@ -3,14 +3,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 //Project Files
 import { useModal } from "../../state/ModalProvider";
-import FormUpdate from "./form/FormUpdate";
+import FormUpdateTitle from "./form/FormUpdateTitle";
 import fields from "../../data/createTitleFields.json";
 
 export default function EditIcon({ title }) {
   const { openModal } = useModal();
 
   const editIcon = "fa-solid fa-pen-to-square";
-  const updateForm = <FormUpdate title={title} fields={fields} />;
+  const updateForm = <FormUpdateTitle title={title} fields={fields} />;
 
   return (
     <button className="edit-icon">

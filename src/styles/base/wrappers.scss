@@ -2,12 +2,8 @@
 .info-btn,
 .add-btn,
 .back-btn {
-  height: 25px;
-  width: 75px;
   border-radius: 4px;
-  background-color: white;
   text-align: center;
-  color: black;
   cursor: pointer;
 }
 
@@ -29,13 +25,6 @@
   color: $color-dark-grey;
 }
 
-.info-btn {
-  height: 25px;
-  width: 85px;
-  background-color: rgba(109, 109, 110, 0.7);
-  color: white;
-}
-
 .button-holder {
   padding-top: 1.5vw;
   display: flex;
@@ -49,24 +38,14 @@
   justify-content: space-between;
 }
 
-.icon {
-  font-size: 32px;
-  color: rgba(128, 128, 128, 0.4);
-}
-
 .edit-icon {
-  font-size: 30px;
-  color: rgba(128, 128, 128, 0.4);
+  font-size: 26px;
+  color: $color-dark-grey;
 }
 
 .delete-icon {
-  font-size: 28px;
-  color: red;
-}
-
-.back-icon {
-  font-size: 32px;
-  color: rgba(128, 128, 128, 0.4);
+  font-size: 24px;
+  color: $color-dark-grey;
 }
 
 .flex-center {
@@ -100,4 +79,8 @@
   align-items: center;
   gap: $space-x-big;
   color: #ccc;
+}
+
+.red {
+  color: $color-red;
 }

@@ -13,7 +13,7 @@ export default function AdminRoutes() {
     <>
       <Routes>
         <Route path="/" element={<AdminHome />} />
-        <Route path="/category" element={<TitleCategory />} />
+        <Route path="/:type" element={<TitleCategory />} />
         <Route path="/:id/seasons" element={<Seasons />} />
         <Route path="/sort-titles" element={<SortTitles />} />
         <Route path="*" element={<NotFound text={"page"} routePath={"/"} />} />

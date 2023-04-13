@@ -1,28 +1,29 @@
 // Node modules
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 // Project files
 import { createAccount } from "../../scripts/authentication/createAccount";
 import { createDocumentManualID } from "../../scripts/firestore/createDocumentManualID";
-import { useUser } from "../../state/UserProvider";
-import authData from "../../data/authData.json";
-import FormFieldGenerator from "../../components/common/form/FormFieldGenerator";
 import setLocalStorage from "../../scripts/localStorage/setLocalStorage";
+import { useUser } from "../../state/UserProvider";
+import fields from "../../data/authFields.json";
+import data from "../../data/authData.json";
+import FormFieldGenerator from "../../components/common/form/FormFieldGenerator";
 
 export default function SignUp() {
   // Global state
   const navigate = useNavigate();
   const { setCurrentUserId, dispatch } = useUser();
   const formRef = useRef();
+  //Local state
+  const [form, setForm] = useState(data);
 
   // Methods
   async function onSubmit(event) {
     event.preventDefault();
-    const email = formRef.current.email.value;
-    const password = formRef.current.password.value;
-    const result = await createAccount(email, password);
-    result.status ? onSuccess(result, email) : onFailure(result);
+    const result = await createAccount(form.email, form.password);
+    result.status ? onSuccess(result, form.email) : onFailure(result);
   }
 
   async function onSuccess(result, email) {
@@ -41,17 +42,19 @@ export default function SignUp() {
   }
 
   return (
-    <div className="sign-up flex-column">
-      <span className="step-indicator">
-        STEP <b>1</b> OF <b>3</b>
-      </span>
-      <h1>Create a password to start your membership.</h1>
-      <span>Just a few more steps and you're finished!</span>
-      <span>We hate paperwork, too.</span>
-      <form ref={formRef} className="form" onSubmit={(e) => onSubmit(e)}>
-        <FormFieldGenerator data={authData} />
-        <input type="submit"></input>
-      </form>
+    <div className="signup-container">
+      <div className="sign-up flex-column">
+        <span className="step-indicator">
+          STEP <b>1</b> OF <b>3</b>
+        </span>
+        <h1>Create a password to start your membership.</h1>
+        <span>Just a few more steps and you're finished!</span>
+        <span>We hate paperwork, too.</span>
+        <form ref={formRef} className="form" onSubmit={(e) => onSubmit(e)}>
+          <FormFieldGenerator fields={fields} state={[form, setForm]} />
+          <input type="submit" value="Next"></input>
+        </form>
+      </div>
     </div>
   );
 }

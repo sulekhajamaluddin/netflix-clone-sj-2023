@@ -1,4 +1,6 @@
+//Node modules
 import { collectionGroup, getDocs } from "firebase/firestore";
+//Project files
 import { database } from "./databaseSetUp";
 
 export async function readAllSubcollections(subcollectionName) {

@@ -1,28 +1,34 @@
 // Project files
 import deleteDocument from "../../../scripts/firestore/deleteDocument";
 import { useModal } from "../../../state/ModalProvider";
-import { useUser } from "../../../state/UserProvider";
+import { useTitles } from "../../../state/TitlesProvider";
 
-export default function FormDelete({ titleID }) {
+export default function FormDelete({ id, path, type }) {
   // Global state
   const { closeModal } = useModal();
-  const { titlesDispatch } = useUser();
+  const { titlesDispatch, seasonsDispatch } = useTitles();
+
+  //Properties
+  const dispatch = type === "title" ? titlesDispatch : seasonsDispatch;
 
   // Method
   async function onConfirm() {
-    await deleteDocument("titles", titleID);
-    titlesDispatch({ type: "delete", payload: titleID });
+    await deleteDocument(path, id);
+    dispatch({ type: "delete", payload: id });
     closeModal();
   }
 
   return (
     <div className="form">
-      <h2>Delete item</h2>
+      <h2>Delete {type}</h2>
       <p>
-        ℹ️ Warning, deleting the item is a permanent action. Press the button
-        below if you are sure about it
+        Warning: Deleting this <b className="red">{type}</b> is a permanent
+        action. You will lose all data associated with it. Are you sure you want
+        to delete it?
       </p>
-      <button onClick={onConfirm}>Confirm</button>
+      <button className="confirm" onClick={onConfirm}>
+        Confirm
+      </button>
     </div>
   );
 }
