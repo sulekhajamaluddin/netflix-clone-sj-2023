@@ -1,6 +1,5 @@
 //Node Modules
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useEffect, useState } from "react";
 
 //Project Files
 import handleSlider from "../../scripts/utils/slider";
@@ -14,9 +13,7 @@ import TitleDetails from "./TitleDetails";
 export default function Category({ css, type }) {
   const { titles } = useTitles();
   const displayTitles = titles.filter((title) => title.sub_category === type);
-  const { openModal } = useModal();
-
-  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const { openModal, setModalStyle } = useModal();
 
   function getTitleLogo(title) {
     let titleLogo;
@@ -28,14 +25,6 @@ export default function Category({ css, type }) {
     return titleLogo;
   }
 
-  // useEffect(() => {
-  //   if (modalIsOpen) {
-  //     document.body.style.overflow = "hidden";
-  //   } else {
-  //     document.body.style.overflow = "unset";
-  //   }
-  // }, [modalIsOpen]);
-
   const articles = displayTitles.map((title) => {
     const titleLogo = getTitleLogo(title);
     return (
@@ -43,7 +32,7 @@ export default function Category({ css, type }) {
         className="title-card"
         key={title.id}
         onClick={() => {
-          setModalIsOpen(true);
+          setModalStyle("title-window");
           openModal(<TitleDetails title={title} />);
         }}
       >

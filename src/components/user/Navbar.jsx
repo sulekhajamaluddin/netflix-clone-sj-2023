@@ -41,16 +41,20 @@ export default function Navbar() {
         <Link>Films</Link>
         <Link>New & Popular</Link>
         <Link>My list</Link>
-        <Link>Browse by languages</Link>
+        <Link className="browse">Browse by languages</Link>
       </div>
-      <div className="search">
-        <input placeholder="Search" aria-label="search bar" />
-        <FontAwesomeIcon
-          className="glass"
-          icon={"fa-solid fa-magnifying-glass"}
-        />
+      <div className="right-menu">
+        <div className="search">
+          <input type="text" placeholder="Search" aria-label="search bar" />
+          <button className="glass">
+            <FontAwesomeIcon
+              // className="glass"
+              icon={"fa-solid fa-magnifying-glass"}
+            />
+          </button>
+        </div>
         <Link className="children">Children</Link>
-        <FontAwesomeIcon className="glass" icon={"fa-solid fa-bell"} />
+        <FontAwesomeIcon className="bell" icon={"fa-solid fa-bell"} />
         <div className="avatar-holder">
           <img className="avatar" src={avatar} alt="Avatar" />
           <FontAwesomeIcon className="caret" icon={"fa-solid fa-caret-down"} />

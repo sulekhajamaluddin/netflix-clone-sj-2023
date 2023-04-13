@@ -7,6 +7,7 @@ const Context = createContext(null);
 export function ModalProvider({ children }) {
   //State
   const [modal, setModal] = useState(null);
+  const [modalStyle, setModalStyle] = useState("window");
 
   function openModal(content) {
     setModal(content);
@@ -17,7 +18,7 @@ export function ModalProvider({ children }) {
   }
 
   //Properties
-  const values = { modal, openModal, closeModal };
+  const values = { modal, openModal, closeModal, modalStyle, setModalStyle };
 
   return <Context.Provider value={values}>{children}</Context.Provider>;
 }
