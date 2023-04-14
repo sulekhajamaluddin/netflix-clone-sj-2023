@@ -8,6 +8,14 @@
   text-align: center;
   gap: $space-x-big;
 
+  .logout {
+    height: 50px;
+    width: 100px;
+    margin-left: auto;
+    background-color: $color-light-grey;
+    border-radius: 2px;
+  }
+
   .link {
     text-decoration: underline;
     cursor: pointer;

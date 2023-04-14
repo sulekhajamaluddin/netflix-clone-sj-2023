@@ -4,18 +4,17 @@ import { useEffect, useState } from "react";
 import readDocuments from "../../scripts/firestore/readDocuments";
 
 export default function Episodes({ season, series }) {
-  console.log(season);
   const [episodes, setEpisodes] = useState([]);
+  const [selectedEpisode, setSelectedEpisode] = useState(null);
+  console.log(selectedEpisode);
 
   useEffect(() => {
-    console.log("Inside useeffect");
     const EPISODES = `titles/${series.id}/seasons/${season}/episodes`;
     loadData(EPISODES);
   }, [season]);
 
   async function loadData(collection) {
     const episodes = await readDocuments(collection).catch(onFail);
-    console.log(episodes);
     onSuccess(episodes);
   }
 
@@ -33,9 +32,25 @@ export default function Episodes({ season, series }) {
     ) : (
       episodes &&
       episodes.map((episode) => (
-        <span key={episode.id}>{episode.episodeNumber}</span>
+        <button
+          className="episode"
+          key={episode.id}
+          onClick={() => setSelectedEpisode(episode)}
+        >
+          Episode: {episode.episodeNumber}
+        </button>
       ))
     );
 
-  return <div>{contents}</div>;
+  return (
+    <div className="episodes">
+      {selectedEpisode && (
+        <p>
+          You have selected Episode: {selectedEpisode.episodeNumber}. Click on
+          play button to play the episode.
+        </p>
+      )}
+      {contents}
+    </div>
+  );
 }

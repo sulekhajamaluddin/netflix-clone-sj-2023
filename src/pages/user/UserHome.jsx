@@ -2,11 +2,10 @@
 import { useEffect, useState } from "react";
 
 //Project Files
-
-import readDocuments from "../../scripts/firestore/readDocuments";
 import { useTitles } from "../../state/TitlesProvider";
-import Loader from "../../components/common/Loader";
+import readDocuments from "../../scripts/firestore/readDocuments";
 import Error from "../../pages/common/Error";
+import Loader from "../../components/common/Loader";
 import DefaultView from "../../components/user/DefaultView";
 import SearchResults from "../../components/user/SearchResults";
 

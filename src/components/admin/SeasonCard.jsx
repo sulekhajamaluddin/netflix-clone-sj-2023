@@ -9,14 +9,12 @@ import AddButton from "./AddButton";
 import Episode from "./Episode";
 
 export default function SeasonCard({ season }) {
-  console.log(season);
   const { id } = useParams();
   const [isActive, setIsActive] = useState(false);
   const [episodes, setEpisodes] = useState([]);
   const COLLECTION_NAME = `titles/${id}/seasons/${season.id}/episodes`;
 
   useEffect(() => {
-    console.log("Inside useEffect");
     async function init() {
       const data = await readDocuments(COLLECTION_NAME);
       setEpisodes(data);

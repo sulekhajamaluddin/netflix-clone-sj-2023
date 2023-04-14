@@ -1,31 +1,58 @@
+//Node modules
+import { useEffect, useState } from "react";
+//Project files
 import logo from "../../assets/film_logo.png";
 import InfoButton from "../../components/user/InfoButton";
 import PlayButton from "../../components/user/PlayButton";
-import Category from "../../components/user/Category";
+import CategoryRow from "../../components/user/CategoryRow";
+import hero from "../../data/hero.json";
+import readDocuments from "../../scripts/firestore/readDocuments";
 
 export default function DefaultView() {
-  const heroSrc =
-    "https://m.media-amazon.com/images/M/MV5BMmFkMGMwZGUtMDUwYy00MjdjLTllZWEtODdiZDc2Yjc0NDVmL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyNTc3MjUzNTI@._V1_.jpg";
+  //Local state
+  const [displayCategories, setDisplayCategories] = useState([]);
+  //Properties
+  const COLLECTION_NAME = "display_categories";
+
+  useEffect(() => {
+    loadData(COLLECTION_NAME);
+  }, []);
+
+  async function loadData(collection) {
+    const data = await readDocuments(collection).catch(onFail);
+    onSuccess(data);
+  }
+
+  function onSuccess(data) {
+    setDisplayCategories(data);
+  }
+
+  function onFail() {
+    alert("Something went wrong");
+  }
+
+  //Components
+  const category_rows = displayCategories.map((category) => (
+    <CategoryRow type={category.name} />
+  ));
+
   return (
     <>
-      <div className="hero">
-        <img className="background" src={heroSrc} alt="Thumbnail" />
+      <section className="hero">
+        <img className="background" src={hero.url} alt="Thumbnail" />
         <div className="overlay"></div>
-      </div>
+      </section>
       <div className="content-container">
         <div className="title-logo flex-column">
           <img className="logo" src={logo} alt="logo" />
-          <span className="title">The Pursuit Of Happyness</span>
+          <span className="title">{hero.title}</span>
           <div className="button-container">
             <PlayButton />
             <InfoButton />
           </div>
         </div>
-        <Category type={"Popular on Netflix"} css={"first-row"} />
+        {category_rows}
       </div>
-      {/* <Category css={"second-row"} />
-        <Category />
-        <Category /> */}
     </>
   );
 }

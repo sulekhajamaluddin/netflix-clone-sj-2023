@@ -1,18 +1,23 @@
 //Node Modules
 import { useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 //Project Files
 import logo from "../../assets/logo.png";
 import avatar from "../../assets/avatar.png";
 import { useTitles } from "../../state/TitlesProvider";
+import { useUser } from "../../state/UserProvider";
+import clearLocalStorage from "../../scripts/localStorage/clearLocalStorage";
 
 export default function Navbar() {
   const navRef = useRef();
+  const { dispatch, setCurrentUserId } = useUser();
+  const navigate = useNavigate();
   const [isActive, setIsActive] = useState(false);
   const { titles, setTitlesType, setSearchedTitles } = useTitles();
   const [searchWord, setSearchWord] = useState("");
+  const [state, setState] = useState(false);
 
   function toggleClass() {
     let element = document.querySelector(".menu");
@@ -20,11 +25,10 @@ export default function Navbar() {
   }
 
   function changeBackground() {
-    window.scrollY >= 90 ? setIsActive(true) : setIsActive(false);
+    window.scrollY >= 40 ? setIsActive(true) : setIsActive(false);
   }
 
   function findMatchingTitles() {
-    console.log(searchWord);
     const result = titles.filter((title) =>
       title.heading.toLowerCase().includes(searchWord.toLowerCase())
     );
@@ -33,7 +37,15 @@ export default function Navbar() {
 
   function handleChange(e) {
     setSearchWord(e.target.value);
-    setTitlesType("search");
+  }
+
+  function logout() {
+    dispatch({
+      type: "reset",
+    });
+    setCurrentUserId("");
+    clearLocalStorage();
+    navigate("/");
   }
 
   window.addEventListener("scroll", changeBackground);
@@ -42,6 +54,7 @@ export default function Navbar() {
   document.addEventListener("keyup", function (event) {
     if (event.code === "Enter") {
       const result = findMatchingTitles(searchWord);
+      setTitlesType("search");
       setSearchedTitles(result);
     }
   });
@@ -79,18 +92,25 @@ export default function Navbar() {
             onBlur={() => setSearchWord("")}
           />
           <button className="glass">
-            <FontAwesomeIcon
-              // className="glass"
-              icon={"fa-solid fa-magnifying-glass"}
-            />
+            <FontAwesomeIcon icon={"fa-solid fa-magnifying-glass"} />
           </button>
         </div>
         <Link className="children">Children</Link>
         <FontAwesomeIcon className="bell" icon={"fa-solid fa-bell"} />
-        <div className="avatar-holder">
+        <div
+          className="avatar-holder"
+          onClick={() => {
+            setState(!state);
+          }}
+        >
           <img className="avatar" src={avatar} alt="Avatar" />
           <FontAwesomeIcon className="caret" icon={"fa-solid fa-caret-down"} />
         </div>
+        {state && (
+          <button className="logout" onClick={() => logout()}>
+            Sign out of Netflix
+          </button>
+        )}
       </div>
     </nav>
   );

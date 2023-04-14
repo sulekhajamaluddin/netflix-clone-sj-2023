@@ -44,7 +44,7 @@ const SeriesDetails = ({ series }) => {
           setSeason(e.target.value);
         }}
       >
-        <option>Select a season</option>
+        <option value="">Seasons</option>
         {options}
       </select>
       <Episodes season={season} series={series} />

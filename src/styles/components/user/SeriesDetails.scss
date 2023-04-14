@@ -1,3 +1,18 @@
 .series-details {
-  padding: 0 3em;
+  display: flex;
+  flex-direction: column;
+  gap: $space-medium;
+
+  select {
+    background-color: rgb(36, 36, 36);
+    color: white;
+    display: block;
+    width: 150px;
+    height: 65px;
+    margin-left: auto;
+    padding: 0.5em 1em;
+    border: 0.1em solid rgb(77, 77, 77);
+    border-radius: 0.2em;
+    font-size: 1.1em;
+  }
 }

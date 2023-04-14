@@ -3,6 +3,9 @@ import React from "react";
 import YouTube from "react-youtube";
 
 export default function VideoPlayer() {
+  const videoURL = "https://www.youtube.com/watch?v=sfftYjKbfm8";
+  const videoID = videoURL.split("v=")[1];
+
   function videoOnPause(event) {
     event.target.pauseVideo();
   }
@@ -11,12 +14,9 @@ export default function VideoPlayer() {
     event.target.playVideo();
   }
 
-  const videoURL = "https://www.youtube.com/watch?v=sfftYjKbfm8";
-  const videoID = videoURL.split("v=")[1];
-
   const opts = {
+    width: "375",
     height: "500",
-    width: "500",
     playerVars: {
       autoplay: 1,
     },
@@ -30,7 +30,6 @@ export default function VideoPlayer() {
         onPause={videoOnPause}
         onPlay={videoOnPlay}
       />
-      ;
     </div>
   );
 }

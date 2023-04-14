@@ -3,9 +3,9 @@ import { Routes, Route } from "react-router-dom";
 
 //Project Files
 import Navbar from "../components/user/Navbar";
-import Footer from "../components/user/Footer";
 import NotFound from "../pages/common/NotFound";
 import UserHome from "../pages/user/UserHome";
+import VideoPlayer from "../pages/user/VideoPlayer";
 
 export default function UserRoutes() {
   return (
@@ -13,9 +13,9 @@ export default function UserRoutes() {
       <Navbar />
       <Routes>
         <Route path="/" element={<UserHome />} />
+        <Route path="/player" element={<VideoPlayer />} />
         <Route path="*" element={<NotFound text={"page"} routePath={"/"} />} />
       </Routes>
-      <Footer />
     </>
   );
 }

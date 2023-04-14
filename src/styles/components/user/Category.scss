@@ -26,10 +26,10 @@
       width: 50%;
       flex-shrink: 0;
       aspect-ratio: 16/9;
-      //background-color: #141414;
       padding: 0 0.2vw;
       color: black;
       position: relative;
+      cursor: pointer;
 
       img {
         width: 100%;
@@ -66,12 +66,8 @@
   }
 }
 
-.first-row {
+.category:first-of-type {
   margin-top: 0;
-}
-
-.second-row {
-  margin-top: 107px;
 }
 
 @media (min-width: 500px) {
@@ -83,9 +79,9 @@
     }
   }
 
-  .second-row {
-    margin-top: 85px;
-  }
+  // .second-row {
+  //   margin-top: 85px;
+  // }
 }
 
 @media (min-width: 800px) {
@@ -100,9 +96,9 @@
     }
   }
 
-  .second-row {
-    margin-top: 75px;
-  }
+  // .second-row {
+  //   margin-top: 75px;
+  // }
 }
 
 @media (min-width: 1100px) {
@@ -114,7 +110,7 @@
     }
   }
 
-  .second-row {
-    margin-top: 50px;
-  }
+  // .second-row {
+  //   margin-top: 50px;
+  // }
 }
