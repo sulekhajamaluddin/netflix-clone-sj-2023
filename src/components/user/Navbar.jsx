@@ -9,25 +9,23 @@ import avatar from "../../assets/avatar.png";
 import { useTitles } from "../../state/TitlesProvider";
 import { useUser } from "../../state/UserProvider";
 import clearLocalStorage from "../../scripts/localStorage/clearLocalStorage";
+import toggleClass from "../../scripts/utils/toggleClass";
 
 export default function Navbar() {
+  //Global state
   const navRef = useRef();
-  const { dispatch, setCurrentUserId } = useUser();
   const navigate = useNavigate();
-  const [isActive, setIsActive] = useState(false);
+  const { dispatch, setCurrentUserId } = useUser();
   const { titles, setTitlesType, setSearchedTitles } = useTitles();
+  //Local state
+  const [isActive, setIsActive] = useState(false);
   const [searchWord, setSearchWord] = useState("");
   const [state, setState] = useState(false);
 
-  function toggleClass() {
-    let element = document.querySelector(".menu");
-    element.classList.toggle("menu-show");
-  }
+  //Properties
+  const className = isActive ? "nav-container active" : "nav-container";
 
-  function changeBackground() {
-    window.scrollY >= 40 ? setIsActive(true) : setIsActive(false);
-  }
-
+  //Methods
   function findMatchingTitles() {
     const result = titles.filter((title) =>
       title.heading.toLowerCase().includes(searchWord.toLowerCase())
@@ -48,8 +46,11 @@ export default function Navbar() {
     navigate("/");
   }
 
+  function changeBackground() {
+    window.scrollY >= 40 ? setIsActive(true) : setIsActive(false);
+  }
+
   window.addEventListener("scroll", changeBackground);
-  const className = isActive ? "nav-container active" : "nav-container";
 
   document.addEventListener("keyup", function (event) {
     if (event.code === "Enter") {

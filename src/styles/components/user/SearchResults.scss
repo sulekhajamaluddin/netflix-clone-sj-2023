@@ -1,6 +1,5 @@
 .search-container {
   width: 100%;
-  max-width: 960px;
   padding: 0 4%;
   margin: auto;
   margin-top: 100px;
@@ -31,7 +30,11 @@
 
     .heading {
       position: absolute;
+      max-width: 150px;
+      left: 5%;
       bottom: 5%;
+      color: white;
+      z-index: 500;
     }
   }
 
@@ -47,15 +50,39 @@
   .grid {
     width: 100%;
     display: grid;
+    gap: $space-big;
     grid-template-columns: repeat(2, 1fr);
-    //gap: $space-big;
 
     @media (min-width: 750px) {
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(3, 1fr);
     }
 
     @media (min-width: 960px) {
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    @media (min-width: 1280px) {
+      grid-template-columns: repeat(5, 1fr);
+    }
+
+    @media (min-width: 1500px) {
+      grid-template-columns: repeat(6, 1fr);
+    }
+  }
+}
+
+@media (min-width: 550px) {
+  .search-container {
+    .title-card {
+      height: 150px;
+    }
+  }
+}
+
+@media (min-width: 750px) {
+  .search-container {
+    .title-card {
+      height: 180px;
     }
   }
 }

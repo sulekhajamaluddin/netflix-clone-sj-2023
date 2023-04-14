@@ -17,7 +17,7 @@ export default function VideoPlayer() {
   }
 
   const opts = {
-    width: "375",
+    width: "350",
     height: "500",
     playerVars: {
       autoplay: 1,
