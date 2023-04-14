@@ -1,10 +1,12 @@
 //Node modules
 import React from "react";
 import YouTube from "react-youtube";
+import { useLocation } from "react-router-dom";
 
 export default function VideoPlayer() {
-  const videoURL = "https://www.youtube.com/watch?v=sfftYjKbfm8";
-  const videoID = videoURL.split("v=")[1];
+  const { state } = useLocation();
+  const videoURL = state?.url;
+  const videoID = videoURL?.split("v=")[1];
 
   function videoOnPause(event) {
     event.target.pauseVideo();

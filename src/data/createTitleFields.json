@@ -22,5 +22,13 @@
     "label": "Description",
     "required": true,
     "disabled": false
+  },
+  {
+    "id": 5,
+    "key": "url",
+    "type": "text",
+    "label": "Link to video",
+    "required": false,
+    "disabled": false
   }
 ]

@@ -12,7 +12,6 @@ export function TitlesProvider({ children }) {
   const [titles, titlesDispatch] = useReducer(TitlesReducer, []);
   const [seasons, seasonsDispatch] = useReducer(SeasonsReducer, []);
   const [searchedTitles, setSearchedTitles] = useState([]);
-  console.log(searchedTitles);
   const [titlesType, setTitlesType] = useState("default");
 
   //Properties

@@ -13,7 +13,7 @@ export default function UserRoutes() {
       <Navbar />
       <Routes>
         <Route path="/" element={<UserHome />} />
-        <Route path="/player" element={<VideoPlayer />} />
+        <Route path="/:id/player" element={<VideoPlayer />} />
         <Route path="*" element={<NotFound text={"page"} routePath={"/"} />} />
       </Routes>
     </>

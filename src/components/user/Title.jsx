@@ -21,7 +21,7 @@ const Title = ({ title }) => {
     <article className="title-card" key={id} onClick={() => handleModal()}>
       <img src={title.thumbnailURL} alt="thumbnail" />
       <img className="title-logo-image" src={titleLogo} alt="title logo" />
-      {/* <span className="heading">{title.heading}</span> */}
+      <span className="heading">{title.heading}</span>
     </article>
   );
 };

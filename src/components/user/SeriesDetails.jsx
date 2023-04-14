@@ -6,10 +6,20 @@ import { useTitles } from "../../state/TitlesProvider";
 import Episodes from "./Episodes";
 
 const SeriesDetails = ({ series }) => {
+  //Global state
   const { seasons, seasonsDispatch } = useTitles();
-  const COLLECTION_NAME = `titles/${series.id}/seasons`;
+
+  //Local state
   const seasonId = seasons[0] ? seasons[0].id : "";
   const [season, setSeason] = useState(seasonId);
+
+  //Properties
+  const COLLECTION_NAME = `titles/${series.id}/seasons`;
+
+  //Methods
+  function handleChange(e) {
+    setSeason(e.target.value);
+  }
 
   useEffect(() => {
     loadData(COLLECTION_NAME);
@@ -38,12 +48,7 @@ const SeriesDetails = ({ series }) => {
 
   return (
     <div className="series-details">
-      <select
-        value={season}
-        onChange={(e) => {
-          setSeason(e.target.value);
-        }}
-      >
+      <select value={season} onChange={(e) => handleChange(e)}>
         <option value="">Seasons</option>
         {options}
       </select>

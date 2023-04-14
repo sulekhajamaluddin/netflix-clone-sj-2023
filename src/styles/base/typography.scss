@@ -11,12 +11,12 @@ p {
 
 body {
   font-family: "Poppins", sans-serif;
-  //color: $color-light-grey;
 }
 
 .button,
 button,
-a {
+a,
+span {
   font-size: $text-small;
   font-weight: bold;
 }
@@ -24,18 +24,10 @@ a {
 h1 {
   font-weight: 500;
   font-size: 32px;
-  //visually hidden
-  // font-size: 40px;
-  // @media (min-width: 1280px) {
-  //   font-size: 70px;
-  // }
 }
 
 h2 {
   font-size: 20px;
-  // @media (min-width: 1000px) {
-  //   font-size: 30px;
-  // }
 }
 
 p {
@@ -47,7 +39,7 @@ p {
   }
 
   @media (min-width: 1000px) {
-    font-size: $text-small;
+    font-size: $text-desktop;
     line-height: 140%;
   }
 }

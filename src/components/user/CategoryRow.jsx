@@ -12,7 +12,9 @@ export default function CategoryRow({ css, type }) {
 
   //Properties
   const displayTitles = titles.filter((title) => title.sub_category === type);
-  const items = displayTitles.map((title) => <Title title={title} />);
+  const items = displayTitles.map((title) => (
+    <Title title={title} key={title.id} />
+  ));
 
   return (
     <section className={`category ${css}`}>

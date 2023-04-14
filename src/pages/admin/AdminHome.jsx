@@ -14,7 +14,7 @@ export default function AdminHome() {
   const navigate = useNavigate();
 
   //Properties
-  const categories = ["series", "documentary", "film"];
+  const categories = ["documentary", "film", "series"];
 
   //Methods
   function logout() {
@@ -45,9 +45,6 @@ export default function AdminHome() {
         Logout
       </button>
       <h1>Admin Home</h1>
-      <Link className="link" to={"/sort-titles"}>
-        Manage Display Categories
-      </Link>
       <section className="grid">{Categories}</section>
     </div>
   );
