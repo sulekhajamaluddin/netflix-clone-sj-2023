@@ -5,6 +5,7 @@ import SignedInRoutes from "./routes/SignedInRoutes";
 import SignedOutRoutes from "./routes/SignedOutRoutes";
 import { useUser } from "./state/UserProvider";
 
+// good
 export default function App() {
   const { uid } = useUser();
 

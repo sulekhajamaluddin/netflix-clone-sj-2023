@@ -7,6 +7,7 @@ import NotFound from "../pages/common/NotFound";
 import TitleCategory from "../pages/admin/TitleCategory";
 import Seasons from "../pages/admin/Seasons";
 
+// good
 export default function AdminRoutes() {
   return (
     <>

@@ -4,6 +4,7 @@ import { useRef } from "react";
 // Project files
 import { recoverAccount } from "../../scripts/authentication/recoverAccount";
 
+// good
 export default function RecoverPassword() {
   // Local state
   const formRef = useRef();

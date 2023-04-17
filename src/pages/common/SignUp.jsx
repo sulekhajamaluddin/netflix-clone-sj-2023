@@ -11,6 +11,7 @@ import fields from "../../data/authFields.json";
 import data from "../../data/authData.json";
 import FormFieldGenerator from "../../components/common/form/FormFieldGenerator";
 
+// good but a bit too long
 export default function SignUp() {
   // Global state
   const navigate = useNavigate();
@@ -32,6 +33,7 @@ export default function SignUp() {
     await createDocumentManualID("users", currentUserId, user);
     setCurrentUserId(currentUserId);
     dispatch({ type: "initialise", payload: user });
+    // should uid be a property inside user?
     await setLocalStorage("uid", currentUserId);
     await setLocalStorage("user", user);
     navigate("/");

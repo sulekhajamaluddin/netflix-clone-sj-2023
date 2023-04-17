@@ -4,18 +4,13 @@ import YouTube from "react-youtube";
 import { useLocation } from "react-router-dom";
 
 export default function VideoPlayer() {
+  // State
   const { state } = useLocation();
   const videoURL = state?.url;
   const videoID = videoURL?.split("v=")[1];
 
-  function videoOnPause(event) {
-    event.target.pauseVideo();
-  }
-
-  function videoOnPlay(event) {
-    event.target.playVideo();
-  }
-
+  // Properties
+  // this are properties put them here
   const opts = {
     width: "350",
     height: "500",
@@ -23,6 +18,15 @@ export default function VideoPlayer() {
       autoplay: 1,
     },
   };
+
+  // Methods
+  function videoOnPause(event) {
+    event.target.pauseVideo();
+  }
+
+  function videoOnPlay(event) {
+    event.target.playVideo();
+  }
 
   return (
     <div className="video-player">

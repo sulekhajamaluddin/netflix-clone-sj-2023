@@ -9,6 +9,7 @@ import Loader from "../../components/common/Loader";
 import DefaultView from "../../components/user/DefaultView";
 import SearchResults from "../../components/user/SearchResults";
 
+// very good
 export default function UserHome() {
   //Global state
   const { titlesDispatch, titlesType } = useTitles();

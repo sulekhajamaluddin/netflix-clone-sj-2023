@@ -6,6 +6,7 @@ import { useTitles } from "../../state/TitlesProvider";
 import handleSlider from "../../scripts/utils/slider";
 import Title from "./Title";
 
+// good
 export default function CategoryRow({ css, type }) {
   //Global state
   const { titles } = useTitles();

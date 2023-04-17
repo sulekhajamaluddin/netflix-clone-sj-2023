@@ -11,6 +11,7 @@ import SignUp from "../pages/common/SignUp";
 import NotFound from "../pages/common/NotFound";
 import RecoverPassword from "../pages/common/RecoverPassword";
 
+// good
 export default function SignedOutRoutes() {
   const loginState = { navbar: <LoginNavbar />, component: <Login /> };
   const signUpState = { navbar: <SignUpNavbar />, component: <SignUp /> };
