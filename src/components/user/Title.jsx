@@ -2,14 +2,16 @@
 import { useModal } from "../../state/ModalProvider";
 import getTitleLogo from "../../scripts/utils/getTitleLogo";
 import TitleDetails from "./TitleDetails";
+import placeholder from "../../assets/placeholder.jpg";
 
 const Title = ({ title }) => {
   //Global state
   const { setModalStyle, openModal } = useModal();
-  const { id } = title;
+  const { id, thumbnailURL } = title;
 
   //Properties
   const titleLogo = getTitleLogo(title);
+  const thumbSrc = thumbnailURL === "" ? placeholder : thumbnailURL;
 
   //Methods
   function handleModal() {
@@ -19,7 +21,7 @@ const Title = ({ title }) => {
 
   return (
     <article className="title-card" key={id} onClick={() => handleModal()}>
-      <img src={title.thumbnailURL} alt="thumbnail" />
+      <img src={thumbSrc} alt="thumbnail" />
       <img className="title-logo-image" src={titleLogo} alt="title logo" />
       <span className="heading">{title.heading}</span>
     </article>
