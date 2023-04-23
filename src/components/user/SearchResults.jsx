@@ -17,7 +17,7 @@ export default function SearchResults() {
   return (
     <div className="search-container">
       {searchedTitles.length === 0 && <EmptyContent message={message} />}
-      <div className="grid">{items}</div>
+      <div className="row">{items}</div>
     </div>
   );
 }

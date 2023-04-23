@@ -32,7 +32,7 @@ export default function MenuRight({ search }) {
 
   return (
     <div className="right-menu">
-      <div className="search">
+      <div className="search" tabIndex={0}>
         <input
           type="text"
           placeholder="Titles, people, genres"
